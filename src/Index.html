@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Software de Inventario del Salón de Belleza JMC">
     <title>Inventario del Salón de Belleza JMC</title>
-    <link rel="stylesheet" href="index.css"> 
+    <link rel="stylesheet" href="index.css">
+    
 </head>
 <body>
     <header>
@@ -30,36 +31,151 @@
         <section id="inventario">
             <h2>Inventario</h2>
             <p>En esta sección podrás ver y gestionar todos los productos disponibles en el salón de belleza. Puedes añadir, eliminar o modificar productos en el inventario.</p>
+            <ul>
+                <li>Shampoo - 20 unidades</li>
+                <li>Acondicionador - 15 unidades</li>
+                <li>Mascarilla capilar - 10 unidades</li>
+                <li>Secador de pelo - 5 unidades</li>
+                <li>Plancha - 8 unidades</li>
+            </ul>
+            <p>Para añadir nuevos productos, por favor dirígete a la sección de ventas.</p>
         </section>
+
 
         <section id="ventas">
             <h2>Ventas</h2>
+
             <p>Aquí puedes registrar las ventas realizadas en el salón. Lleva un control de las ventas diarias y visualiza estadísticas.</p>
+            <h3>Registro de Ventas</h3>
+            <form id="venta-form">
+                <label for="producto">Producto:</label>
+                <select id="producto" name="producto">
+                    <option value="shampoo">Shampoo</option>
+                    <option value="acondicionador">Acondicionador</option>
+                    <option value="mascarilla">Mascarilla capilar</option>
+                    <option value="secador">Secador de pelo</option>
+                    <option value="plancha">Plancha</option>
+                </select>
+                
+                <label for="cantidad">Cantidad Vendida:</label>
+                <input type="number" id="cantidad" name="cantidad" min="1" required>
+                
+                <label for="precio">Precio por Unidad:</label>
+                <input type="number" id="precio" name="precio" min="0.01" step="0.01" required>
+                
+                <button type="submit">Registrar Venta</button>
+            </form>
+            
+            <h3>Ventas Realizadas</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Precio Total</th>
+                    </tr>
+                </thead>
+                <tbody id="ventas-lista">
+                    <!-- Las ventas se mostrarán aquí -->
+                </tbody>
+            </table>
         </section>
 
         <section id="reportes">
             <h2>Reportes</h2>
+
             <p>Genera reportes sobre el inventario y las ventas. Puedes ver informes detallados de los productos vendidos y el estado del inventario.</p>
+            <h3>Generar Reporte de Ventas</h3>
+            <form id="reporte-ventas-form">
+                <label for="fecha-inicio">Fecha de Inicio:</label>
+                <input type="date" id="fecha-inicio" name="fecha-inicio" required>
+                
+                <label for="fecha-fin">Fecha de Fin:</label>
+                <input type="date" id="fecha-fin" name="fecha-fin" required>
+                
+                <button type="submit">Generar Reporte de Ventas</button>
+            </form>
+            
+            <h3>Generar Reporte de Inventario</h3>
+            <form id="reporte-inventario-form">
+                <label for="producto-inventario">Producto:</label>
+                <select id="producto-inventario" name="producto-inventario">
+                    <option value="shampoo">Shampoo</option>
+                    <option value="acondicionador">Acondicionador</option>
+                    <option value="mascarilla">Mascarilla capilar</option>
+                    <option value="secador">Secador de pelo</option>
+                    <option value="plancha">Plancha</option>
+                </select>
+                
+                <button type="submit">Generar Reporte de Inventario</button>
+            </form>
+        
+            <h3>Reportes Generados</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tipo de Reporte</th>
+                        <th>Fecha Generación</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="reportes-lista">
+                    <!-- Los reportes generados se mostrarán aquí -->
+                </tbody>
+            </table>
         </section>
 
         <section id="contacto">
             <h2>Contacto</h2>
             <p>Para más información, contáctanos a través de nuestro correo electrónico: <a href="mailto:info@salonbellezaJMC.com">info@salonbellezaJMC.com</a>.</p>
+            <form id="contacto-form">
+                <label for="nombre">Nombre:SALON DE BELLEZA JMC</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="email">Email:@SalonJMC.COM</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                
+                <button type="submit">Enviar Mensaje</button>
+            </form>
+            
+            <h3>Información de Contacto</h3>
+            <p>
+                <strong>Teléfono:</strong> (123) 456-7890<br>
+                <strong>Email:</strong> contacto@salonbellezajmc.com<br>
+                <strong>Dirección:</strong> Calle Ejemplo 123, Ciudad, País
+            </p>
         </section>
 
     <main>
         <section id="introduccion">
             <h2>Introducción</h2>
             <p>Este sistema permite gestionar el inventario de productos, registrar ventas y generar reportes de forma eficiente para el salón de belleza JMC.</p>
+
+            <p>
+                Bienvenido al Sistema de Inventario del Salón de Belleza JMC, una solución diseñada para facilitar la gestión eficiente de productos y servicios en tu salón. Este sistema te permitirá llevar un control detallado del inventario de productos, gestionar las ventas y generar reportes para una mejor toma de decisiones.
+            </p>
+            <p>
+                Con un enfoque en la simplicidad y la usabilidad, nuestro software está pensado para que los propietarios y empleados del salón puedan utilizarlo sin complicaciones. Podrás agregar y actualizar productos fácilmente, registrar las ventas de manera rápida y obtener informes que te ayudarán a optimizar la gestión de tu negocio.
+            </p>
+            <p>
+                En este documento, exploraremos las funcionalidades más importantes del sistema, así como los beneficios que ofrece para la gestión de tu salón de belleza. Te invitamos a descubrir cómo el Sistema de Inventario del Salón de Belleza JMC puede ayudarte a mejorar la eficiencia y el rendimiento de tu negocio.
+            </p>
         </section>
 
         <section id="funcionalidades">
             <h2>Funcionalidades</h2>
+            <p>El Sistema de Inventario del Salón de Belleza JMC ofrece diversas funcionalidades que facilitan la gestión y optimización de tu negocio. A continuación, se presentan algunas de las características más destacadas:</p>
             <ul>
-                <li>Gestión de productos y control de stock.</li>
-                <li>Registro de ventas diarias.</li>
-                <li>Generación de informes de inventario y ventas.</li>
-                <li>Interfaz amigable y fácil de usar.</li>
+                <li><strong>Gestión de Productos:</strong> Permite agregar, editar y eliminar productos del inventario de manera sencilla.</li>
+                <li><strong>Control de Stock:</strong> Realiza un seguimiento en tiempo real del nivel de inventario para evitar desabastecimientos.</li>
+                <li><strong>Registro de Ventas:</strong> Facilita la gestión de ventas diarias con la opción de registrar cada transacción de forma rápida.</li>
+                <li><strong>Generación de Reportes:</strong> Ofrece la posibilidad de generar informes detallados de inventario y ventas para un análisis profundo.</li>
+                <li><strong>Interfaz Amigable:</strong> Diseñada para ser intuitiva y fácil de usar, permitiendo a los empleados navegar sin complicaciones.</li>
+                <li><strong>Acceso Multiplataforma:</strong> El sistema es accesible desde diferentes dispositivos, lo que permite gestionar el inventario desde cualquier lugar.</li>
+                <li><strong>Alertas de Stock:</strong> Recibe notificaciones automáticas cuando el nivel de stock de un producto esté por debajo del mínimo establecido.</li>
             </ul>
         </section>
     </main>
